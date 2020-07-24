@@ -15,14 +15,14 @@ function StudentGrid() {
             setStudentArray(response);
         })
         .catch(() => console.log('An error occurred while fetching student information.'));
-
-        studentArray.forEach((card: IStudentCardProps, i: number) => {
-            cards.push(
-                <Grid key={"card_" + i} item sm={6} md={4} lg={3} className="StudentGridCard">
-                    <StudentCard studentId={card.studentId} firstName={card.firstName} lastName={card.lastName} emailAddress={card.emailAddress} phoneNumber={card.phoneNumber} timeCreated={card.timeCreated}></StudentCard>
-                </Grid>
-            );
-        });
+    
+    studentArray.forEach((card: IStudentCardProps, i: number) => {
+        cards.push(
+            <Grid key={"card_" + i} item sm={6} md={4} lg={3} className="StudentGridCard">
+                <StudentCard studentId={card.studentId} firstName={card.firstName} lastName={card.lastName} emailAddress={card.emailAddress} phoneNumber={card.phoneNumber} timeCreated={card.timeCreated}></StudentCard>
+            </Grid>
+        );
+    });
 
     return (
         <div>
