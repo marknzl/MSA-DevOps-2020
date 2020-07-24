@@ -1,0 +1,1 @@
+This file should trigger the build pipeline but not the release pipeline when committed under the 'development' branch :)
