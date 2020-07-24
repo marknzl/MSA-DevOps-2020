@@ -1,0 +1,15 @@
+.StudentCardContainer{
+    max-width: 310px;
+    margin: auto;
+}
+
+.StudentCardImage{
+    height: 200px !important;
+    max-width: 310px;
+}
+
+.StudentCardDescription{
+    height: 200px;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+}

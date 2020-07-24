@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import StudentGrid from './components/StudentGridComponent/StudentGrid';
+
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 700,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          MSA 2020 DevOps :)
-        </p>
-        <a
-          className="App-link"
-          href="https://msa.azurewebsites.net/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          MSA Website 2020
-        </a>
-      </header>
+    <div>
+      <MuiThemeProvider theme={theme}>
+        <StudentGrid />
+      </MuiThemeProvider>
     </div>
   );
 }
