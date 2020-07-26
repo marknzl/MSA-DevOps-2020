@@ -7,12 +7,14 @@ import StudentCard from "../StudentCardComponent/StudentCard";
 
 function StudentGrid() {
     const [studentArray, setStudentArray] = useState<IStudentCardProps[]>([]);
+    const [hasLoaded, setHasLoaded] = useState<Boolean>(false);
     let cards: JSX.Element[] = [];
 
     fetch('https://msa-studentsims.azurewebsites.net/api/students/')
         .then(response => response.json())
         .then(response => {
             setStudentArray(response);
+            setHasLoaded(true);
         })
         .catch(() => console.log('An error occurred while fetching student information.'));
     
@@ -24,13 +26,21 @@ function StudentGrid() {
         );
     });
 
-    return (
-        <div>
-            <Grid container spacing={3} className="StudentGridContainer">
-                {cards}
-            </Grid>
-        </div>
-    );
+    if (hasLoaded) {
+        return (
+            <div>
+                <Grid container spacing={3} className="StudentGridContainer">
+                    {cards}
+                </Grid>
+            </div>
+        );
+    } else {
+        return (
+            <div>
+                <h1>Loading student data...</h1>
+            </div>
+        )
+    }
 }
 
 export default StudentGrid;
